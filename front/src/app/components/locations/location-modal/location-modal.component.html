@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Récapitulatif du véhicule
+            </h5>
+            <p>Marque : {{vehicule.marque}}</p>
+            <p>Modèle : {{vehicule.modele}}</p>
+            <p>Immatriculation : {{vehicule.immatriculation}}</p>
+            <p>Etat du véhicule : {{vehicule.etat}}</p>
+            <p>Prix de location à la journée : {{vehicule.prix | number:'0.2'}}€</p>
+        </div>
+    </div>
+
+    <form [formGroup]="locationForm" (ngSubmit)="louer()">
+        <label>Date de début de location :
+            <input type="date" formControlName="dateDebut">
+        </label>
+        <label>Date de fin de location :
+            <input type="date" formControlName="dateFin">
+        </label>
+        <ng-container formGroupName="locataire">
+            <label>Locataire du véhicule :
+                <select name="locataire" formControlName="id">
+                    <option value="0" disabled hidden>--Sélectionner un locataire</option>
+                    <ng-container *ngFor="let locataire of locataires">
+                        <option [value]="locataire.id">{{locataire.nom}} {{locataire.prenom}}</option>
+                    </ng-container>
+                </select>
+            </label>
+        </ng-container>
+
+        <h3>Prix total de la location : {{prixTotal}}€</h3>
+        
+        <div class="buttons">
+            <button type="button" class="btn btn-danger">Annuler</button>
+            <button class="btn btn-success">Valider</button>
+        </div>
+        
+    </form>
+</div>

@@ -8,8 +8,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VehiculesComponent } from './pages/vehicules/vehicules.component';
-import { LocationModalComponent } from './components/vehicules/location-modal/location-modal.component';
+import { LocationModalComponent } from './components/locations/location-modal/location-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LocationsComponent } from './pages/locations/locations.component';
+import { LocatairesComponent } from './pages/locataires/locataires.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     HomeComponent,
     VehiculesComponent,
-    LocationModalComponent
+    LocationModalComponent,
+    LocationsComponent,
+    LocatairesComponent
   ],
   imports: [
     BrowserModule,
