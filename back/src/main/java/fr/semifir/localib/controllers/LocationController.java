@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("locations")
+@CrossOrigin
 public class LocationController {
 
     private LocationServiceImpl service;

@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("locataires")
+@CrossOrigin
 public class LocataireController {
 
     private LocataireServiceImpl service;

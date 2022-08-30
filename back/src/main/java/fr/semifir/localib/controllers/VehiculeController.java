@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("vehicules")
+@CrossOrigin
 public class VehiculeController {
 
     private VehiculeServiceImpl service;
