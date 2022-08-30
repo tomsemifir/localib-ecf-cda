@@ -1,0 +1,12 @@
+<ul class="header">
+    <li class="item">numéro</li>
+    <li class="item">locataire</li>
+    <li class="item">vehicule</li>
+    <li class="item">date début</li>
+    <li class="item">date fin</li>
+    <li class="item">prix</li>
+</ul>
+
+<ng-container *ngFor="let location of locations">
+    <app-location [location]="location"></app-location>
+</ng-container>

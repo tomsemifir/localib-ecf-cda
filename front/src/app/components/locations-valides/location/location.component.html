@@ -1,0 +1,8 @@
+<ul class="location-header" *ngIf="location.locataire && location.vehicule">
+    <li class="location-item">#{{location.id}}</li>
+    <li class="location-item">{{location.locataire.nom | uppercase }} {{location.locataire.prenom | titlecase }}</li>
+    <li class="location-item">{{location.vehicule.marque}} {{location.vehicule.modele}}</li>
+    <li class="location-item">{{location.dateDebut | date:'shortDate'}}</li>
+    <li class="location-item">{{location.dateFin | date:'shortDate'}}</li>
+    <li class="location-item">{{location.prixTotal}}</li>
+</ul>

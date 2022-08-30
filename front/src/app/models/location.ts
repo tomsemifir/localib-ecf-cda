@@ -4,7 +4,7 @@ import { Vehicule } from "./vehicule";
 export class Location {
 
     constructor(
-        public id : string,
+        public id : number,
         public dateDebut : Date,
         public dateFin : Date,
         public prixTotal : number,

@@ -14,6 +14,8 @@ import { LocationsComponent } from './pages/locations/locations.component';
 import { LocatairesComponent } from './pages/locataires/locataires.component';
 import { LocataireComponent } from './components/locataires/locataire/locataire.component';
 import { VehiculeComponent } from './components/vehicules/vehicule/vehicule.component';
+import { LocationsValidesComponent } from './pages/locations-valides/locations-valides.component';
+import { LocationComponent } from './components/locations-valides/location/location.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { VehiculeComponent } from './components/vehicules/vehicule/vehicule.comp
     LocationsComponent,
     LocatairesComponent,
     LocataireComponent,
-    VehiculeComponent
+    VehiculeComponent,
+    LocationsValidesComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
