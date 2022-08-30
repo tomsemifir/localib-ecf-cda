@@ -1,0 +1,52 @@
+<ng-container *ngIf="!editMode">
+    <ul class="vehicule-header">
+        <li class="vehicule-item">#{{vehicule.immatriculation}}</li>
+        <li class="vehicule-item">{{vehicule.marque}}</li>
+        <li class="vehicule-item">{{vehicule.modele}}</li>
+        <li class="vehicule-item">{{vehicule.etat}}</li>
+        <li class="vehicule-item">{{vehicule.prix}}</li>
+        <li class="vehicule-item">{{vehicule.status=='0'?"Disponible":"Indisponible"}}</li>
+        <li class="vehicule-item">{{vehicule.type}}</li>
+        <li class="vehicule-item buttons">
+            <button class="btn btn-warning" (click)="switchEditMode()">...</button>
+            <button class="btn btn-danger" (click)="deleteVehicule()">X</button>
+        </li>
+    </ul>
+</ng-container>
+
+<ng-container *ngIf="editMode">
+    <form [formGroup]="vehiculeForm" (ngSubmit)="editVehicule()">
+        <ul class="vehicule-header">
+            <li class="vehicule-item"><input type="text" formControlName="immatriculation"></li>
+            <li class="vehicule-item"><input type="text" formControlName="marque"></li>
+            <li class="vehicule-item"><input type="text" formControlName="modele"></li>
+            <li class="vehicule-item">
+                <select formControlName="etat">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </li>
+            <li class="vehicule-item"><input type="number" formControlName="prix"></li>
+            <li class="vehicule-item">
+                <select formControlName="status">
+                    <option value="0">Disponible</option>
+                    <option value="1">Indisponible</option>
+                </select>
+            </li>
+            <li class="vehicule-item">
+                    <select formControlName="type">
+                        <option value="Voiture">Voiture</option>
+                        <option value="Camion">Camion</option>
+                        <option value="Utilitaire">Utilitaire</option>
+                        <option value="Moto">Moto</option>
+                    </select>
+            </li>
+            <li class="vehicule-item buttons">
+                <button class="btn btn-warning" (click)="switchEditMode()">X</button>
+                <button class="btn btn-success">V</button>
+            </li>
+        </ul>
+    </form>
+</ng-container>

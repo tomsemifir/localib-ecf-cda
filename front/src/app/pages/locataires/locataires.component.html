@@ -1,1 +1,33 @@
-<p>locataires works!</p>
+<button class="btn btn-success" *ngIf="!showForm" (click)="switchShowForm()">Ajouter un locataire</button>
+<button class="btn btn-danger" *ngIf="showForm" (click)="switchShowForm()">Cacher formulaire</button>
+
+<form [formGroup]="locataireForm" *ngIf="showForm" (ngSubmit)="addLocataire()">
+    <label>Nom :
+        <input type="text" formControlName="nom">
+    </label>
+    <label>Prénom :
+        <input type="text" formControlName="prenom">
+    </label>
+    <label>Email :
+        <input type="text" formControlName="email">
+    </label>
+    <label>Mot de passe :
+        <input type="password" formControlName="password">
+    </label>
+
+    <label>
+        <button class="btn btn-success">Valider ajout locataire</button>
+    </label>
+    
+</form>
+
+<ul class="header">
+    <li class="item">identifiant</li>
+    <li class="item">NOM</li>
+    <li class="item">prénom</li>
+    <li class="item">email</li>
+    <li class="item"></li>
+</ul>
+<ng-container *ngFor="let locataire of locataires">
+    <app-locataire [locataire]="locataire" (deleteEvent)="deleteLocataire($event)"></app-locataire>
+</ng-container>

@@ -13,4 +13,16 @@ export class VehiculeService {
   findAll() {
     return this.http.get<Vehicule[]>(`${environment.apiUrl}/vehicules`);
   }
+
+  create(vehicule : Vehicule) {
+    return this.http.post<Vehicule>(`${environment.apiUrl}/vehicules`, vehicule);
+  }
+
+  update(vehicule : Vehicule) {
+    return this.http.patch<Vehicule>(`${environment.apiUrl}/vehicules/${vehicule.id}`, vehicule);
+  }
+
+  delete(id : number) {
+    return this.http.delete<Vehicule>(`${environment.apiUrl}/vehicules/${id}`);
+  }
 }

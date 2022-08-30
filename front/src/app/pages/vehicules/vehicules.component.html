@@ -1,0 +1,65 @@
+<button class="btn btn-success" *ngIf="!showForm" (click)="switchShowForm()">Ajouter un véhicule</button>
+<button class="btn btn-danger" *ngIf="showForm" (click)="switchShowForm()">Cacher formulaire</button>
+
+<form [formGroup]="vehiculeForm" (ngSubmit)="addVehicule()" *ngIf="showForm"> 
+    <label>Immatriculation :
+        <input type="text" formControlName="immatriculation">
+    </label>   
+    
+    <label>Marque :
+        <input type="text" formControlName="marque">
+    </label>  
+    
+    <label>Modèle :
+        <input type="text" formControlName="modele">
+    </label>  
+    
+    <label>Etat :
+        <select formControlName="etat">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+    </label>  
+    
+    <label>Prix à la journée :
+        <input type="number" formControlName="prix">
+    </label>  
+    
+    <label>Disponibilité :
+        <select formControlName="status">
+            <option value="0">Disponible</option>
+            <option value="1">Indisponible</option>
+        </select>
+    </label>  
+
+    <label>Type :
+        <select formControlName="type">
+            <option value="Voiture">Voiture</option>
+            <option value="Camion">Camion</option>
+            <option value="Utilitaire">Utilitaire</option>
+            <option value="Moto">Moto</option>
+        </select>
+    </label>  
+    
+    <button class="btn btn-success">Valider ajout du véhicule</button>
+</form>
+
+<ul class="header">
+    <li class="item">immatriculation</li>
+    <li class="item">marque</li>
+    <li class="item">modele</li>
+    <li class="item">etat</li>
+    <li class="item">prix</li>
+    <li class="item">disponibilité</li>
+    <li class="item">type</li>
+    <li class="item"></li>
+</ul>
+
+<div class="alert alert-danger" role="alert" style="width: 80%;" *ngIf="showErrorDialog">
+    Ce véhicule est associé à des locations, vous ne pouvez pas le supprimer
+  </div>
+<ng-container *ngFor="let vehicule of vehicules">
+    <app-vehicule [vehicule]="vehicule" (deleteEvent)="deleteVehicule($event)"></app-vehicule>
+</ng-container>

@@ -1,0 +1,27 @@
+<ng-container *ngIf="!editMode">
+    <ul class="locataire-header">
+        <li class="locataire-item">#{{locataire.id}}</li>
+        <li class="locataire-item">{{locataire.nom | uppercase }}</li>
+        <li class="locataire-item">{{locataire.prenom}}</li>
+        <li class="locataire-item">{{locataire.email}}</li>
+        <li class="locataire-item buttons">
+            <button class="btn btn-warning" (click)="switchEditMode()">...</button>
+            <button class="btn btn-danger" (click)="delete()">X</button>
+        </li>
+    </ul>
+</ng-container>
+
+<ng-container *ngIf="editMode">
+    <form [formGroup]="locataireForm" (ngSubmit)="editLocataire()">
+        <ul class="locataire-header">
+            <li class="locataire-item">#{{locataire.id}}</li>
+            <li class="locataire-item"><input type="text" formControlName="nom"></li>
+            <li class="locataire-item"><input type="text" formControlName="prenom"></li>
+            <li class="locataire-item"><input type="text" formControlName="email"></li>
+            <li class="locataire-item buttons">
+                <button type="button" class="btn btn-warning" (click)="switchEditMode()">X</button>
+                <button class="btn btn-success">V</button>
+            </li>
+        </ul>
+    </form>
+</ng-container>

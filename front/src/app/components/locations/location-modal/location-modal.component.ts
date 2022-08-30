@@ -74,6 +74,10 @@ export class LocationModalComponent implements OnInit {
     
   }
 
+  close() {
+    this.activeModal.close();
+  }
+
   get prixTotal() {
     return this.locationForm.value.prixTotal;
   }

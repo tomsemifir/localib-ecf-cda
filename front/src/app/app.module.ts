@@ -12,6 +12,8 @@ import { LocationModalComponent } from './components/locations/location-modal/lo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { LocatairesComponent } from './pages/locataires/locataires.component';
+import { LocataireComponent } from './components/locataires/locataire/locataire.component';
+import { VehiculeComponent } from './components/vehicules/vehicule/vehicule.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LocatairesComponent } from './pages/locataires/locataires.component';
     VehiculesComponent,
     LocationModalComponent,
     LocationsComponent,
-    LocatairesComponent
+    LocatairesComponent,
+    LocataireComponent,
+    VehiculeComponent
   ],
   imports: [
     BrowserModule,

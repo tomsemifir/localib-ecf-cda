@@ -13,4 +13,16 @@ export class LocataireService {
   findAll() {
     return this.http.get<Locataire[]>(`${environment.apiUrl}/locataires`);
   }
+
+  create(locataire : Locataire) {
+    return this.http.post<Locataire>(`${environment.apiUrl}/locataires`, locataire);
+  }
+
+  delete(id : number) {
+    return this.http.delete<Locataire>(`${environment.apiUrl}/locataires/${id}`);
+  }
+
+  update(locataire: Locataire) {
+    return this.http.patch<Locataire>(`${environment.apiUrl}/locataires/${locataire.id}`, locataire)
+  }
 }
